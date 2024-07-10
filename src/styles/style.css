@@ -1,0 +1,151 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.note-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 64px;
+  padding: 16px;
+}
+
+.note-app__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-app h1 {
+  color: #405d72;
+  margin-bottom: 16px;
+}
+
+.note-search input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-width: 400px;
+}
+
+.note-search input:focus {
+  border-color: #405d72;
+  outline: none;
+}
+
+.note-app h2 {
+  font-size: 20px;
+  margin: 16px 0;
+}
+
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.note-item {
+  padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-item__content {
+  flex: 1 1;
+}
+
+.note-item__createdAt {
+  margin-bottom: 4px;
+  color: gray;
+  font-size: 14px;
+}
+
+.note-item__title {
+  color: #405d72;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.note-item__body {
+  margin-bottom: 20px;
+}
+
+.note-item__delete {
+  padding: 8px 18px;
+  margin-right: 12px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #fc4100;
+  cursor: pointer;
+}
+
+.note-item__archive {
+  padding: 8px 18px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: #405d72;
+  cursor: pointer;
+}
+
+.note-input {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.note-input__title-char-limit {
+  font-size: 14px;
+  text-align: right;
+}
+
+.note-input input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 16px 0;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.note-input textarea {
+  min-height: 175px;
+}
+
+.note-input button {
+  width: 100%;
+  padding: 12px;
+  background-color: #405d72;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .note-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .note-app__header {
+    flex-direction: column;
+  }
+
+  .note-list {
+    grid-template-columns: 1fr;
+  }
+}
