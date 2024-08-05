@@ -1,3 +1,17 @@
+:root {
+  --font-color: #405d72;
+  --background-color: #eee;
+  --card-color: white;
+  --date-color: grey;
+}
+
+[data-theme="dark"] {
+  --font-color: #eee;
+  --background-color: #405d72;
+  --card-color: #2b485c;
+  --date-color: rgb(212, 212, 212);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -6,6 +20,38 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+}
+
+.navigation ul {
+  display: flex;
+  align-items: flex-start;
+}
+
+.navigation ul li {
+  display: inline-block;
+  padding: 16px;
+}
+
+.navigation ul li a {
+  font-size: 24px;
+  color: var(--font-color);
+}
+
+.navigation ul li button {
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  border: 0;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--font-color);
+}
+
+.home-page {
+  margin: 20px;
 }
 
 .note-app {
@@ -21,33 +67,61 @@ body {
   align-items: center;
 }
 
+.note-app__header .navigation {
+  display: flex;
+  gap: 32px;
+}
+
+.note-app__header .navigation button {
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  border: 0;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--font-color);
+}
+
 .note-app h1 {
-  color: #405d72;
-  margin-bottom: 16px;
+  color: var(--font-color);
+}
+
+.note-search {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .note-search input {
   padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  min-width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .note-search input:focus {
-  border-color: #405d72;
+  border-color: var(--font-color);
   outline: none;
 }
 
 .note-app h2 {
   font-size: 20px;
   margin: 16px 0;
+  color: var(--font-color);
 }
 
 .note-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  gap: 24px;
+}
+
+.note-list__empty {
+  color: var(--font-color);
 }
 
 .note-item {
@@ -55,22 +129,29 @@ body {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   display: flex;
   flex-direction: column;
+  background-color: var(--card-color);
 }
 
 .note-item__content {
   flex: 1 1;
+  color: var(--font-color);
 }
 
 .note-item__createdAt {
   margin-bottom: 4px;
-  color: gray;
+  color: var(--date-color);
   font-size: 14px;
 }
 
 .note-item__title {
-  color: #405d72;
+  color: var(--font-color);
   font-size: 18px;
   margin-bottom: 4px;
+}
+
+.note-item__title a {
+  text-decoration: none;
+  color: var(--font-color);
 }
 
 .note-item__body {
@@ -89,10 +170,10 @@ body {
 
 .note-item__archive {
   padding: 8px 18px;
-  color: white;
+  color: var(--background-color);
   border: none;
   border-radius: 5px;
-  background-color: #405d72;
+  background-color: var(--font-color);
   cursor: pointer;
 }
 
@@ -126,12 +207,132 @@ textarea {
 .note-input button {
   width: 100%;
   padding: 12px;
-  background-color: #405d72;
+  background-color: var(--font-color);
   color: white;
   border: none;
   border-radius: 5px;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+}
+
+.note-app__404page {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note-detail__title {
+  font-size: 32px;
+  color: var(--font-color);
+}
+
+.note-detail__createdAt {
+  color: var(--date-color);
+}
+
+.note-detail__body {
+  color: var(--font-color);
+}
+
+.register-page {
+  margin: 0 auto;
+  margin-top: 64px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-page p {
+  color: var(--font-color);
+}
+
+.register-page p a {
+  color: var(--font-color);
+}
+
+.register-input {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.register-input input {
+  padding: 8px 12px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.register-input button {
+  padding: 8px 12px;
+  color: var(--background-color);
+  background-color: var(--font-color);
+  border: 1px solid var(--font-color);
+  border-radius: 5px;
+}
+
+.login-page {
+  margin: 0 auto;
+  margin-top: 64px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-page p {
+  color: var(--font-color);
+}
+
+.login-page p a {
+  color: var(--font-color);
+}
+
+.login-input {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.login-input input {
+  padding: 8px 12px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.login-input button {
+  padding: 8px 12px;
+  color: var(--background-color);
+  background-color: var(--font-color);
+  border: 1px solid var(--font-color);
+  border-radius: 5px;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
 @media (max-width: 1024px) {

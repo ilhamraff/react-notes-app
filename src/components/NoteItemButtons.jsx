@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import DeleteButton from "./DeleteButton";
 import ArchiveButton from "./ArchiveButton";
 
@@ -10,5 +11,12 @@ function NoteItemButtons({ id, onDelete, onArchive, archived }) {
     </div>
   );
 }
+
+NoteItemButtons.propTypes = {
+  id: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onArchive: PropTypes.func.isRequired,
+  archived: PropTypes.bool.isRequired,
+};
 
 export default NoteItemButtons;

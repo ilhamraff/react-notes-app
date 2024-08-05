@@ -1,4 +1,4 @@
-const getInitialData = () => [
+let notes = [
   {
     id: 1,
     title: "Babel",
@@ -43,6 +43,41 @@ const getInitialData = () => [
   },
 ];
 
+function getNotes() {
+  return notes;
+}
+
+function addNote(note) {
+  notes = [...notes, note];
+}
+
+function deleteNote(id) {
+  notes = notes.filter((note) => note.id !== id);
+}
+
+function archiveNote(id) {
+  notes = notes.map((note) => {
+    if (note.id === id) {
+      return { ...note, archived: !note.archived };
+    }
+    return note;
+  });
+}
+
+function getNote(id) {
+  if (!id) {
+    return null;
+  }
+
+  const filteredNotes = notes.filter((note) => note.id === id);
+
+  if (!filteredNotes.length) {
+    return null;
+  }
+
+  return filteredNotes[0];
+}
+
 const showFormattedDate = (date) => {
   const options = {
     weekday: "long",
@@ -53,4 +88,11 @@ const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString("id-ID", options);
 };
 
-export { getInitialData, showFormattedDate };
+export {
+  getNotes,
+  showFormattedDate,
+  deleteNote,
+  addNote,
+  archiveNote,
+  getNote,
+};

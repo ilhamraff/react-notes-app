@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -7,6 +8,9 @@ class NoteInput extends React.Component {
     this.state = {
       title: "",
       body: "",
+      id: +new Date(),
+      archived: false,
+      createdAt: new Date().toISOString(),
       titleLimit: 50,
     };
 
@@ -41,7 +45,15 @@ class NoteInput extends React.Component {
       return;
     }
 
-    this.props.addNote(this.state);
+    const { title, body, id, archived, createdAt } = this.state;
+    this.props.addNote({
+      title,
+      body,
+      id,
+      archived,
+      createdAt,
+    });
+
     this.setState({
       title: "",
       body: "",
@@ -78,5 +90,9 @@ class NoteInput extends React.Component {
     );
   }
 }
+
+NoteInput.propsTypes = {
+  addNote: PropTypes.func.isRequired,
+};
 
 export default NoteInput;

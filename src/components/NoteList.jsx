@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import NoteItem from "./NoteItem";
 
 function NoteList({ notes, onDelete, onArchive, archived }) {
@@ -21,5 +22,12 @@ function NoteList({ notes, onDelete, onArchive, archived }) {
     </div>
   );
 }
+
+NoteList.propTypes = {
+  notes: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onArchive: PropTypes.func.isRequired,
+  archived: PropTypes.bool.isRequired,
+};
 
 export default NoteList;
